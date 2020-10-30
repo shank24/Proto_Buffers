@@ -1,5 +1,6 @@
 package com.proj.protobuf;
 
+import com.google.protobuf.Int32Value;
 import com.proj.models.Address;
 import com.proj.models.Car;
 import com.proj.models.Person;
@@ -36,11 +37,12 @@ public class CompositionDemo {
 
         Person sam = Person.newBuilder()
                 .setName("Sam")
-                .setAge(25)
+                .setAge(Int32Value.newBuilder().setValue(25).build())
                 .addAllCar(cars)
                 .setAddress(address)
                 .build();
 
         System.out.println(sam);
+        System.out.println(sam.hasAge());
     }
 }
